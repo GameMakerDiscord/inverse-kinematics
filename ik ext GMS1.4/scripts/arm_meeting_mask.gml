@@ -1,30 +1,30 @@
 ///arm_meeting_mask(obj)
 // @arg obj	object/instance to check for collisions against
 
-var tony_obj = argument[0],
-	tony_psi = sprite_index,
-	tony_pia = image_angle;
+var _obj = argument[0],
+	_psi = sprite_index,
+	_pia = image_angle;
 	
-for(var tony_sid = 0; tony_sid < seg_amount; tony_sid++) {
-	var tony_ssp = seg_spr[tony_sid];
+for(var _sid = 0; _sid < seg_amount; _sid++) {
+	var _ssp = seg_spr[_sid];
 	
-	if (sprite_exists(tony_ssp)) {
-		var tony_nid = tony_sid+1,
-			tony_dir = point_direction(seg_x[tony_sid], seg_y[tony_sid], seg_x[tony_nid], seg_y[tony_nid]);
+	if (sprite_exists(_ssp)) {
+		var _nid = _sid+1,
+			_dir = point_direction(seg_x[_sid], seg_y[_sid], seg_x[_nid], seg_y[_nid]);
 	
-		sprite_index = tony_ssp;
-		image_angle	 = tony_dir;
+		sprite_index = _ssp;
+		image_angle	 = _dir;
 
-		if (place_meeting(seg_x[tony_sid], seg_y[tony_sid], tony_obj)) {
-			var tony_ist = instance_place(seg_x[tony_sid], seg_y[tony_sid], tony_obj);
-			sprite_index = tony_psi;
-			image_angle	 = tony_pia;
-			return tony_ist;
+		if (place_meeting(seg_x[_sid], seg_y[_sid], _obj)) {
+			var _ist = instance_place(seg_x[_sid], seg_y[_sid], _obj);
+			sprite_index = _psi;
+			image_angle	 = _pia;
+			return _ist;
 		}
 	}
 }
 
-sprite_index = tony_psi;
-image_angle	 = tony_pia;
+sprite_index = _psi;
+image_angle	 = _pia;
 return noone;
 

@@ -8,29 +8,29 @@
 //////////  ~ Don't tell anyone ~                       //////////
 //////////////////////////////////////////////////////////////////
 
-var tony_ang = argument[0],
-    tony_seg = argument[1],
-    tony_rel = false;
+var _ang = argument[0],
+    _seg = argument[1],
+    _rel = false;
 
-if (argument_count > 2) tony_rel = argument[2];
+if (argument_count > 2) _rel = argument[2];
 
-if (tony_rel) {
-    var tony_seg_x = IKc_array_copy(seg_x);
-    var tony_seg_y = IKc_array_copy(seg_y);
+if (_rel) {
+    var _seg_x = IKc_array_copy(seg_x);
+    var _seg_y = IKc_array_copy(seg_y);
 }
 
-for (var tony_i = tony_seg; tony_i < seg_amount; tony_i++) {
+for (var _i = _seg; _i < seg_amount; _i++) {
     
-    var tony_ndir = tony_ang;
-    if (tony_rel) {
-        var tony_dir  = point_direction(tony_seg_x[tony_i], tony_seg_y[tony_i], tony_seg_x[tony_i+1], tony_seg_y[tony_i+1]);
-        tony_ndir = (tony_dir + tony_ang) mod 360;
+    var _ndir = _ang;
+    if (_rel) {
+        var _dir  = point_direction(_seg_x[_i], _seg_y[_i], _seg_x[_i+1], _seg_y[_i+1]);
+        _ndir = (_dir + _ang) mod 360;
     }
     
-    var tony_ldx = lengthdir_x(seg_len[tony_i], tony_ndir),
-        tony_ldy = lengthdir_y(seg_len[tony_i], tony_ndir);
+    var _ldx = lengthdir_x(seg_len[_i], _ndir),
+        _ldy = lengthdir_y(seg_len[_i], _ndir);
     
-    seg_x[@ tony_i+1] = seg_x[@ tony_i] + tony_ldx;
-    seg_y[@ tony_i+1] = seg_y[@ tony_i] + tony_ldy;
+    seg_x[@ _i+1] = seg_x[@ _i] + _ldx;
+    seg_y[@ _i+1] = seg_y[@ _i] + _ldy;
 }
 

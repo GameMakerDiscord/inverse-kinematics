@@ -2,12 +2,12 @@
 // @arg xx position to move to
 // @arg yy position to move to
 
-var tony_x = argument[0]-x,
-    tony_y = argument[1]-y;
+var _x = argument[0]-x,
+    _y = argument[1]-y;
 
-for(var tony_i = 0; tony_i <= seg_amount; tony_i++) {
-    seg_x[@ tony_i] += tony_x;
-    seg_y[@ tony_i] += tony_y;
+for(var _i = 0; _i <= seg_amount; _i++) {
+    seg_x[@ _i] += _x;
+    seg_y[@ _i] += _y;
 }
 
 x = argument[0];

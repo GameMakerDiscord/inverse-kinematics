@@ -2,5 +2,5 @@
 /// @arg force	gravitational force
 /// @arg dir	direction of gravity
 
-for(var tony_i = seg_amount; tony_i >= 0; tony_i--) 
-	seg_apply_force(tony_i, argument[0], argument[1]);
+for(var _i = seg_amount; _i >= 0; _i--) 
+	seg_apply_force(_i, argument[0], argument[1]);

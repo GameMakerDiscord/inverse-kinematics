@@ -4,14 +4,14 @@
 /// @arg force	force to apply
 /// @arg dir	direction to apply force
 
-var tony_sid = argument[0],
-	tony_len = argument[1],
-	tony_dir = argument[2];
+var _sid = argument[0],
+	_len = argument[1],
+	_dir = argument[2];
 	
-if (tony_sid < 0 || tony_sid > seg_amount) show_error("segment index out of range: seg[" + string(tony_sid) + "], seg_amount = " + string(seg_amount), true);
+if (_sid < 0 || _sid > seg_amount) show_error("segment index out of range: seg[" + string(_sid) + "], seg_amount = " + string(seg_amount), true);
 	
-var tony_ldx = lengthdir_x(tony_len, tony_dir),
-	tony_ldy = lengthdir_y(tony_len, tony_dir);
+var _ldx = lengthdir_x(_len, _dir),
+	_ldy = lengthdir_y(_len, _dir);
 	
-seg_x[@ tony_sid] += tony_ldx;
-seg_y[@ tony_sid] += tony_ldy;
+seg_x[@ _sid] += _ldx;
+seg_y[@ _sid] += _ldy;

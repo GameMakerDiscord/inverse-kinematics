@@ -3,30 +3,30 @@
 // @arg pin_x(optional) the x position to pin to 
 // @arg pin_y(optional) the y position to pin to 
 
-var tony_pin = arm_pinned,
-tony_pnx = x,
-tony_pny = y;
+var _pin = arm_pinned,
+_pnx = x,
+_pny = y;
 
 if (argument_count > 0) {
-tony_pin = argument[0];
+_pin = argument[0];
 if (argument_count > 1) {
-tony_pnx = argument[1];
-tony_pny = argument[2];
+_pnx = argument[1];
+_pny = argument[2];
 }
 }
 
-if (!tony_pin) {
-for(var tony_i = seg_amount-1; tony_i >= tony_pin; tony_i--) 
-seg_calculate(tony_i,seg_x[@ tony_i+1], 
-seg_y[@ tony_i+1]);
+if (!_pin) {
+for(var _i = seg_amount-1; _i >= _pin; _i--) 
+seg_calculate(_i,seg_x[@ _i+1], 
+seg_y[@ _i+1]);
 } else {
-if (seg_x[0] != tony_pnx || seg_y[0] != tony_pny) {
-seg_x[@ 0] = tony_pnx;
-seg_y[@ 0] = tony_pny;
+if (seg_x[0] != _pnx || seg_y[0] != _pny) {
+seg_x[@ 0] = _pnx;
+seg_y[@ 0] = _pny;
 
-for(var tony_i = 1; tony_i <= seg_amount; tony_i++)
-seg_calculate(tony_i,seg_x[@ tony_i-1], 
-seg_y[@ tony_i-1]);
+for(var _i = 1; _i <= seg_amount; _i++)
+seg_calculate(_i,seg_x[@ _i-1], 
+seg_y[@ _i-1]);
 }
 }
 

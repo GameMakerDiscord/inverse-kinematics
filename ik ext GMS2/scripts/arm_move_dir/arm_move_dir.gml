@@ -9,36 +9,36 @@
 //	only fill in the two first arguments if you want the arm to move freely.
 //	the last two arguments are where you want to pin the arm to.
 
-var tony_len = argument[0], 
-	tony_dir = argument[1], 
-	tony_pin = false,
-	tony_pnx = x,
-	tony_pny = y;			
+var _len = argument[0], 
+	_dir = argument[1], 
+	_pin = false,
+	_pnx = x,
+	_pny = y;			
 			
 if (argument_count > 2) {
-	tony_pin = argument[2];
-	if (tony_pin) {
+	_pin = argument[2];
+	if (_pin) {
 		if (argument_count > 3) {
-			var tony_pnx = argument[3],
-				tony_pny = argument[4];
+			var _pnx = argument[3],
+				_pny = argument[4];
 		}
 	}
-} else tony_pin = arm_pinned;
+} else _pin = arm_pinned;
 
-if (tony_len != 0) {
-	seg_x[@ seg_amount] += dcos(tony_dir)*tony_len;   
-	seg_y[@ seg_amount] += dsin(360-tony_dir)*tony_len; 
+if (_len != 0) {
+	seg_x[@ seg_amount] += dcos(_dir)*_len;   
+	seg_y[@ seg_amount] += dsin(360-_dir)*_len; 
 
-	for(var tony_i = seg_amount-1; tony_i >= tony_pin; tony_i--) 
-		seg_calculate(	tony_i,	seg_x[@ tony_i+1], 
-								seg_y[@ tony_i+1]);
+	for(var _i = seg_amount-1; _i >= _pin; _i--) 
+		seg_calculate(	_i,	seg_x[@ _i+1], 
+								seg_y[@ _i+1]);
 }
 
-if (tony_pin && (seg_x[@ 0] != tony_pnx || seg_y[@ 0] != tony_pny || tony_len != 0)) {
-	seg_x[@ 0] = tony_pnx;
-	seg_y[@ 0] = tony_pny;
+if (_pin && (seg_x[@ 0] != _pnx || seg_y[@ 0] != _pny || _len != 0)) {
+	seg_x[@ 0] = _pnx;
+	seg_y[@ 0] = _pny;
 	
-	for(var tony_i = 1; tony_i <= seg_amount; tony_i++)
-		seg_calculate(	tony_i,	seg_x[@ tony_i-1], 
-								seg_y[@ tony_i-1]);
+	for(var _i = 1; _i <= seg_amount; _i++)
+		seg_calculate(	_i,	seg_x[@ _i-1], 
+								seg_y[@ _i-1]);
 }

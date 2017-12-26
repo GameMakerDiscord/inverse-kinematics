@@ -7,10 +7,10 @@
 //////////  Important! Must be ran in all arm objects  //////////
 /////////////////////////////////////////////////////////////////
 
-var tony_sprite = sprite_index, tony_setspr = true;
+var _sprite = sprite_index, _setspr = true;
 
 if (argument_count > 2) {
-   tony_sprite = argument[2];
+   _sprite = argument[2];
 }
 
 
@@ -20,21 +20,21 @@ arm_pinned = false;
 seg_amount = floor(argument[1]);
 
 
-if (is_array(tony_sprite)) {
-    seg_spr = tony_sprite;
-    tony_setspr = false;
+if (is_array(_sprite)) {
+    seg_spr = _sprite;
+    _setspr = false;
 }
 
 
-var tony_default_length = arm_length div seg_amount;
-for (var tony_i = 0; tony_i <= seg_amount; tony_i++) {
+var _default_length = arm_length div seg_amount;
+for (var _i = 0; _i <= seg_amount; _i++) {
     
-    seg_x[tony_i] = x + tony_i * tony_default_length;
-    seg_y[tony_i] = y;
-    seg_len[tony_i] = tony_default_length;
+    seg_x[_i] = x + _i * _default_length;
+    seg_y[_i] = y;
+    seg_len[_i] = _default_length;
     
-    if (tony_setspr) seg_spr[tony_i] = tony_sprite;
+    if (_setspr) seg_spr[_i] = _sprite;
 }
 
-return tony_default_length;
+return _default_length;
 

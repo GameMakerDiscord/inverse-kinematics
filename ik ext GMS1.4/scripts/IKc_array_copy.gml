@@ -1,11 +1,11 @@
 ///IKc_array_copy(array)
 // @arg array           the array to copy from
-var tony_out,
-    tony_in  = argument[0],
-    tony_len = array_length_1d(tony_in);
+var _out,
+    _in  = argument[0],
+    _len = array_length_1d(_in);
     
-for (var tony_i = 0; tony_i < tony_len; tony_i++) {
-    tony_out[tony_i] = tony_in[tony_i];
+for (var _i = 0; _i < _len; _i++) {
+    _out[_i] = _in[_i];
 }
 
-return tony_out;
+return _out;

@@ -2,28 +2,28 @@
 // @arg seg	segment index
 // @arg obj	object/instance to check for collisions with
 
-var tony_sid = argument[0],
-	tony_obj = argument[1],
-	tony_ssp = seg_spr[tony_sid];
+var _sid = argument[0],
+	_obj = argument[1],
+	_ssp = seg_spr[_sid];
 	
-if (tony_sid < 0 || tony_sid > seg_amount) show_error("segment index out of range: seg[" + string(tony_sid) + "], seg_amount = " + string(seg_amount), true);
-if (!sprite_exists(tony_ssp))
+if (_sid < 0 || _sid > seg_amount) show_error("segment index out of range: seg[" + string(_sid) + "], seg_amount = " + string(seg_amount), true);
+if (!sprite_exists(_ssp))
 	return false;
 	
-var tony_mto = (tony_sid+1 >= seg_amount)*2,
-	tony_nid = tony_sid+1 - tony_mto,
-	tony_psi = sprite_index,
-	tony_pia = image_angle,
-	tony_dir = (image_angle+point_direction(seg_x[tony_sid], seg_y[tony_sid], seg_x[tony_nid], seg_y[tony_nid])+90*tony_mto) mod 360,
-	tony_opt = false;
+var _mto = (_sid+1 >= seg_amount)*2,
+	_nid = _sid+1 - _mto,
+	_psi = sprite_index,
+	_pia = image_angle,
+	_dir = (image_angle+point_direction(seg_x[_sid], seg_y[_sid], seg_x[_nid], seg_y[_nid])+90*_mto) mod 360,
+	_opt = false;
 	
-sprite_index = tony_ssp;
-image_angle	 = tony_dir;
+sprite_index = _ssp;
+image_angle	 = _dir;
 
-tony_opt = place_meeting(seg_x[tony_sid], seg_y[tony_sid], tony_obj);
+_opt = place_meeting(seg_x[_sid], seg_y[_sid], _obj);
 
-sprite_index = tony_psi;
-image_angle	 = tony_pia;
+sprite_index = _psi;
+image_angle	 = _pia;
 
-return tony_opt;
+return _opt;
 
