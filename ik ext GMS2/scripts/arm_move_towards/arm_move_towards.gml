@@ -1,5 +1,5 @@
 /// @desc move the arm towards dir and calculate the joints accordingly using the inverse kinematics formula
-/// @func arm_move_dir(x, y, len, pin, px, py);
+/// @func arm_move_towards(x, y, len, pin, px, py);
 /// @arg tx		x position to move towards
 /// @arg ty		y position to move towards
 /// @arg len	length to move each step
